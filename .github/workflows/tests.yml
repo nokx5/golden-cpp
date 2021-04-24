@@ -14,4 +14,4 @@ jobs:
         with:
           name: nokx
           authToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjJDI1NzEiLCJqdGkiOiI2ZDg2YTc2Yi00NDk0LTQ2MWEtYTVmNy04YjYzODMyM2RhMDciLCJzY29wZXMiOiJjYWNoZSJ9.9hseHR-4mt9DBqmSE9tZCcYdKoOUMAIxDERUvC7nwY4
-      - run: nix-build --no-out-link -I nokxpkgs=https://github.com/nokx5/nokxpkgs/archive/main.tar.gz -A golden_cpp --run "echo OK"
+      - run: cachix use nokx && nix-build --no-out-link -I nokxpkgs=https://github.com/nokx5/nokxpkgs/archive/main.tar.gz -A golden_cpp | cachix push nokx
