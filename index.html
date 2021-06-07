@@ -352,7 +352,7 @@ nix-build --expr <span class="s1">&#39;{pkgs ? import &lt;nixpkgs&gt; {} }: with
         </a>
     </h4>
 </div><p>You can enter the supercharged environment for development.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix-shell derivation-shell.nix
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix-shell shell.nix
 </code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="use-the-experimental-flake-feature">
         Use the experimental flake feature
@@ -390,7 +390,7 @@ nix-build --expr <span class="s1">&#39;{pkgs ? import &lt;nixpkgs&gt; {} }: with
         </a>
     </h4>
 </div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># option a: develop with a local shell</span>
-nix run .#cli_golden
+nix develop .#golden-cpp
 
 <span class="c1"># option b: build the local project</span>
 nix build .#golden-cpp
@@ -402,7 +402,7 @@ nix build .#golden-cpp
         </a>
     </h4>
 </div><p>You can enter the development supercharged environment.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix develop
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix develop .#shell-dev
 </code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="code-snippets">
         Code Snippets
