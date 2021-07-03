@@ -2,7 +2,7 @@
 <html lang="en" class="color-toggle-hidden">
 
 <head>
-	<meta name="generator" content="Hugo 0.83.1" />
+	<meta name="generator" content="Hugo 0.84.4" />
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark" />
@@ -411,7 +411,7 @@ nix build .#golden-cpp
         </a>
     </h2>
 </div><p>One line code formatter for C/C++ projects</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nixfmt <span class="k">$(</span>find -name <span class="s2">&#34;*.nix&#34;</span><span class="k">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nixpkgs-fmt .
 
 clang-format -i <span class="k">$(</span>find . -path <span class="s2">&#34;./build*&#34;</span> -prune  -name <span class="s2">&#34;*.c&#34;</span> -o -name <span class="s2">&#34;*.cpp&#34;</span> -o -name <span class="s2">&#34;*.h&#34;</span> -o -name <span class="s2">&#34;*.hpp&#34;</span><span class="k">)</span>
 
