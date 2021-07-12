@@ -390,7 +390,7 @@ nix-build --expr <span class="s1">&#39;{pkgs ? import &lt;nixpkgs&gt; {} }: with
         </a>
     </h4>
 </div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># option a: develop with a local shell</span>
-nix develop .#golden-cpp
+nix develop .#golden-cpp <span class="c1"># nix-shell . -A packages.x86_64-linux.golden-cpp</span>
 
 <span class="c1"># option b: build the local project</span>
 nix build .#golden-cpp
@@ -402,7 +402,7 @@ nix build .#golden-cpp
         </a>
     </h4>
 </div><p>You can enter the development supercharged environment.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix develop
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix develop <span class="c1"># nix-shell . -A devShell</span>
 </code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="code-snippets">
         Code Snippets
