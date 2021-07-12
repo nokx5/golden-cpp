@@ -12,7 +12,7 @@
 
 
     <meta name="description" content="Welcome to the golden cpp template    This is a skeleton template for a C/C&#43;&#43; project. Please find all the documentation here and the source code here.
-My development tools are     nix ❄️ (packaging from hell ❤️) clang-format (formatter) vscode (IDE) with  ms-vscode.cmake-tools ms-vscode.cpptools   ctest - sometimes catch2 (unit testing) Markdown (documentation)  Use the classic Nix commands    Use the software (without git clone)    The nokxpkgs channel and associate overlay can be imported with the -I command or by setting the NIX_PATH environment variable.">
+My development tools are     nix ❄️ (packaging from hell ❤️) clang-format (formatter) vscode (IDE) with  ms-vscode.cmake-tools ms-vscode.cpptools   ctest - or catch2 (unit testing) markdown (documentation)  Use the classic Nix commands    Use the software (without git clone)    The nokxpkgs channel and associate overlay can be imported with the -I command or by setting the NIX_PATH environment variable.">
 
 
 
@@ -303,8 +303,8 @@ My development tools are     nix ❄️ (packaging from hell ❤️) clang-forma
 <li>ms-vscode.cpptools</li>
 </ul>
 </li>
-<li>ctest - sometimes catch2 (unit testing)</li>
-<li>Markdown (documentation)</li>
+<li>ctest - or catch2 (unit testing)</li>
+<li>markdown (documentation)</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
     <h2 id="use-the-classic-nix-commands">
@@ -390,10 +390,14 @@ nix-build --expr <span class="s1">&#39;{pkgs ? import &lt;nixpkgs&gt; {} }: with
         </a>
     </h4>
 </div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># option a: develop with a local shell</span>
-nix develop .#golden-cpp <span class="c1"># nix-shell . -A packages.x86_64-linux.golden-cpp</span>
+nix develop .#golden-cpp
+<span class="c1"># or</span>
+nix-shell . -A packages.x86_64-linux.golden-cpp
 
 <span class="c1"># option b: build the local project</span>
 nix build .#golden-cpp
+<span class="c1"># or</span>
+nix-build . -A packages.x86_64-linux.golden-cpp
 </code></pre></div><div class="gdoc-page__anchorwrap">
     <h4 id="option-2-develop-the-software-supercharged--1">
         Option 2: Develop the software (supercharged 🛰️)
@@ -401,8 +405,10 @@ nix build .#golden-cpp
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h4>
-</div><p>You can enter the development supercharged environment.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix develop <span class="c1"># nix-shell . -A devShell</span>
+</div><p>You can enter the supercharged development environment.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix develop
+<span class="c1"># or</span>
+nix-shell . -A devShell
 </code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="code-snippets">
         Code Snippets
