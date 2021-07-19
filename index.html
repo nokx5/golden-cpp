@@ -341,10 +341,10 @@ My development tools are     nix ❄️ (packaging from hell ❤️) clang-forma
     </h4>
 </div><p>You can develop or build the local software easily with the minimal requirements.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># option a: develop with a local shell</span>
-nix-shell --expr <span class="s1">&#39;{pkgs ? import &lt;nixpkgs&gt; {} }: with pkgs; callPackage ./derivation.nix {src = ./.; }&#39;</span>
+nix-shell --expr <span class="s1">&#39;with import &lt;nixpkgs&gt; {}; callPackage ./derivation.nix {src = ./.; }&#39;</span>
 
 <span class="c1"># option b: build the local project</span>
-nix-build --expr <span class="s1">&#39;{pkgs ? import &lt;nixpkgs&gt; {} }: with pkgs; callPackage ./derivation.nix {src = ./.; }&#39;</span>
+nix-build --expr <span class="s1">&#39;with import &lt;nixpkgs&gt; {}; callPackage ./derivation.nix {src = ./.; }&#39;</span>
 </code></pre></div><p>Note that you can write the nix expression directly to the <code>default.nix</code> file to avoid typing <code>--expr</code> each time.</p>
 <div class="gdoc-page__anchorwrap">
     <h4 id="option-2-develop-the-software-supercharged-">
