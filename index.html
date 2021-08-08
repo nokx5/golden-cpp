@@ -422,9 +422,9 @@ nix-shell . -A devShell.x86_64-linux
 </div><p>One line code formatter for C/C++ projects</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nixpkgs-fmt .
 
-clang-format -i <span class="k">$(</span>find . -path <span class="s2">&#34;./build*&#34;</span> -prune  -name <span class="s2">&#34;*.c&#34;</span> -o -name <span class="s2">&#34;*.cpp&#34;</span> -o -name <span class="s2">&#34;*.h&#34;</span> -o -name <span class="s2">&#34;*.hpp&#34;</span><span class="k">)</span>
+clang-format -i <span class="k">$(</span>find . -path <span class="s2">&#34;./b*&#34;</span> -prune  -name <span class="s2">&#34;*.c&#34;</span> -o -name <span class="s2">&#34;*.cpp&#34;</span> -o -name <span class="s2">&#34;*.h&#34;</span> -o -name <span class="s2">&#34;*.hpp&#34;</span><span class="k">)</span>
 
-cmake-format -i <span class="k">$(</span>find . -path <span class="s2">&#34;./build*&#34;</span> -prune  -name <span class="s2">&#34;*.cmake&#34;</span> -o -name <span class="s2">&#34;CMakeLists.txt&#34;</span><span class="k">)</span>
+cmake-format -i <span class="k">$(</span>find . -path <span class="s2">&#34;./b*&#34;</span> -prune  -name <span class="s2">&#34;*.cmake&#34;</span> -o -name <span class="s2">&#34;CMakeLists.txt&#34;</span><span class="k">)</span>
 </code></pre></div>
 
     </article>
