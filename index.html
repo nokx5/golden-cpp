@@ -13,7 +13,8 @@
 
     <meta name="description" content="Welcome to the golden cpp template       
 This is a skeleton template for a C/C&#43;&#43; project. Please find all the documentation here and the source code here.
-My development tools are     nix ❄️ (packaging from hell ❤️) clang-format (formatter) vscode (IDE) with  llvm-vs-code-extensions.vscode-clangd ms-vscode.cmake-tools ms-vscode.cpptools   ctest (unit testing) markdown (documentation)  Use the classic Nix commands    Use the software (without git clone)    The nokxpkgs channel and associate overlay can be imported with the -I command or by setting the NIX_PATH environment variable.">
+ NOTE: you may require the experimental flakes commands nix build and nix shell in the following. If you do not, only classic nix commands nix-build and nix-shell will be available.
+ My development tools are     nix ❄️ (packaging from hell ❤️) clang-format (formatter) vscode (IDE) with  llvm-vs-code-extensions.">
 
 
 
@@ -289,6 +290,9 @@ My development tools are     nix ❄️ (packaging from hell ❤️) clang-forma
     </h1>
 </div><p><a class="gdoc-markdown__link--raw" href="https://github.com/nokx5/golden-cpp/actions/workflows/ci-linux.yml"><img src="https://github.com/nokx5/golden-cpp/workflows/CI-linux/badge.svg" alt="CI-linux"  /></a> <a class="gdoc-markdown__link--raw" href="https://github.com/nokx5/golden-cpp/actions/workflows/ci-darwin.yml"><img src="https://github.com/nokx5/golden-cpp/workflows/CI-darwin/badge.svg" alt="CI-linux"  /></a> <a class="gdoc-markdown__link--raw" href="https://nokx5.github.io/golden-cpp"><img src="https://github.com/nokx5/golden-cpp/workflows/doc-api/badge.svg" alt="doc"  /></a> <a class="gdoc-markdown__link--raw" href="https://github.com/nokx5/golden-cpp/blob/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"  /></a></p>
 <p>This is a skeleton template for a C/C++ project. Please find all the documentation <a class="gdoc-markdown__link" href="https://nokx5.github.io/golden-cpp">here</a> and the source code <a class="gdoc-markdown__link" href="https://github.com/nokx5/golden-cpp">here</a>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> you may require the experimental flakes commands <code>nix build</code> and <code>nix shell</code> in the following. If you do not, only classic nix commands <code>nix-build</code> and <code>nix-shell</code> will be available.</p>
+</blockquote>
 <div class="gdoc-page__anchorwrap">
     <h2 id="my-development-tools-are">
         My development tools are
@@ -310,29 +314,28 @@ My development tools are     nix ❄️ (packaging from hell ❤️) clang-forma
 <li>markdown (documentation)</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="use-the-classic-nix-commands">
-        Use the classic Nix commands
-        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#use-the-classic-nix-commands" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Use the classic Nix commands" href="#use-the-classic-nix-commands">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><div class="gdoc-page__anchorwrap">
-    <h3 id="use-the-software-without-git-clone">
+    <h2 id="use-the-software-without-git-clone">
         Use the software (without git clone)
         <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#use-the-software-without-git-clone" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Use the software (without git clone)" href="#use-the-software-without-git-clone">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
-    </h3>
+    </h2>
 </div><p>The <a class="gdoc-markdown__link" href="https://github.com/nokx5/nokxpkgs#add-nokxpkgs-to-your-nix-channel">nokxpkgs</a> channel and associate overlay can be imported with the <code>-I</code> command or by setting the <code>NIX_PATH</code> environment variable.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-shell -I <span class="nv">nixpkgs</span><span class="o">=</span>https://github.com/nokx5/nokxpkgs/archive/main.tar.gz -p golden-cpp --command cli_golden
+<span class="c1"># or</span>
+nix shell github:nokx5/golden-cpp --command cli_golden
+nix shell github:nokx5/nokxpkgs#golden-cpp --command cli_golden
 </code></pre></div><div class="gdoc-page__anchorwrap">
-    <h3 id="develop-the-software">
-        Develop the software
-        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#develop-the-software" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Develop the software" href="#develop-the-software">
+    <h2 id="develop-the-software-depreciated---new-hash">
+        Develop the software (depreciated - new hash)
+        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#develop-the-software-depreciated---new-hash" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Develop the software (depreciated - new hash)" href="#develop-the-software-depreciated---new-hash">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
-    </h3>
-</div><p>Start by cloning the <a class="gdoc-markdown__link" href="https://github.com/nokx5/golden-cpp">git repository</a> locally and enter it.</p>
+    </h2>
+</div><blockquote>
+<p>Please note that all commands of this section creates new hashes which means that the evaluation may require additional downloads.</p>
+</blockquote>
+<p>Start by cloning the <a class="gdoc-markdown__link" href="https://github.com/nokx5/golden-cpp">git repository</a> locally and enter it.</p>
 <div class="gdoc-page__anchorwrap">
     <h4 id="option-1-develop-the-software-minimal-requirements">
         Option 1: Develop the software (minimal requirements)
@@ -341,11 +344,11 @@ My development tools are     nix ❄️ (packaging from hell ❤️) clang-forma
         </a>
     </h4>
 </div><p>You can develop or build the local software easily with the minimal requirements.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># option a: develop with a local shell</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># option a: develop with a local shell (depreciated - new hash)</span>
 nix-shell --expr <span class="s1">&#39;with import &lt;nixpkgs&gt; {}; callPackage ./derivation.nix {src = ./.; }&#39;</span>
 
-<span class="c1"># option b: build the local project</span>
-nix-build --expr <span class="s1">&#39;with import &lt;nixpkgs&gt; {}; callPackage ./derivation.nix {src = ./.; }&#39;</span>
+<span class="c1"># option b: build the local project (depreciated - new hash)</span>
+nix-build --expr <span class="s1">&#39;with import &lt;nixpkgs&gt; {}; callPackage ./derivation.nix {src = ./.; }&#39;</span> --no-out-link
 </code></pre></div><p>Note that you can write the nix expression directly to the <code>default.nix</code> file to avoid typing <code>--expr</code> each time.</p>
 <div class="gdoc-page__anchorwrap">
     <h4 id="option-2-develop-the-software-supercharged-">
@@ -355,36 +358,23 @@ nix-build --expr <span class="s1">&#39;with import &lt;nixpkgs&gt; {}; callPacka
         </a>
     </h4>
 </div><p>You can enter the supercharged environment for development.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-shell shell.nix
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-shell shell.nix <span class="c1"># (depreciated - new hash)</span>
 </code></pre></div><div class="gdoc-page__anchorwrap">
-    <h2 id="use-the-experimental-flake-feature">
-        Use the experimental flake feature
-        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#use-the-experimental-flake-feature" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Use the experimental flake feature" href="#use-the-experimental-flake-feature">
+    <h2 id="develop-the-software">
+        Develop the software
+        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#develop-the-software" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Develop the software" href="#develop-the-software">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p><strong>NOTE:</strong> This section requires the experimental <code>flake</code> and <code>nix-command</code> features. Please refer to the official documentation for nix flakes. The advantage of using nix flakes is that you avoid channel pinning issues.</p>
+</div><blockquote>
+<p><strong>NOTE:</strong> This section requires the experimental <code>flake</code> and <code>nix-command</code> features. Please refer to the official documentation for nix flakes. The advantage of using nix flakes is that you avoid channel pinning issues.</p>
 <p>After Nix was installed, update to the unstable feature with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-env -f <span class="s1">&#39;&lt;nixpkgs&gt;&#39;</span> -iA nixUnstable
 </code></pre></div><p>And enable experimental features with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir -p ~/.config/nix
 <span class="nb">echo</span> <span class="s1">&#39;experimental-features = nix-command flakes&#39;</span> &gt;&gt; ~/.config/nix/nix.conf
-</code></pre></div><div class="gdoc-page__anchorwrap">
-    <h3 id="use-the-software-without-git-clone-1">
-        Use the software (without git clone)
-        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#use-the-software-without-git-clone-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Use the software (without git clone)" href="#use-the-software-without-git-clone-1">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div><pre><code>nix shell github:nokx5/golden-cpp --command cli_golden
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h3 id="develop-the-software-1">
-        Develop the software
-        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#develop-the-software-1" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Develop the software" href="#develop-the-software-1">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div><p>Start by cloning the <a class="gdoc-markdown__link" href="https://github.com/nokx5/golden-cpp">git repository</a> locally and enter it.</p>
+</code></pre></div></blockquote>
+<p>Start by cloning the <a class="gdoc-markdown__link" href="https://github.com/nokx5/golden-cpp">git repository</a> locally and enter it.</p>
 <div class="gdoc-page__anchorwrap">
     <h4 id="option-1-develop-the-software">
         Option 1: Develop the software
