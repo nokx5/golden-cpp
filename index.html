@@ -320,20 +320,23 @@ This is a skeleton template for a C/C&#43;&#43; project. Please find all the doc
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p>The <a class="gdoc-markdown__link" href="https://github.com/nokx5/nokxpkgs#add-nokxpkgs-to-your-nix-channel">nokxpkgs</a> channel and associate overlay can be imported with the <code>-I</code> command or by setting the <code>NIX_PATH</code> environment variable.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-shell -I <span class="nv">nixpkgs</span><span class="o">=</span>https://github.com/nokx5/nokxpkgs/archive/main.tar.gz -p golden-cpp --command cli_golden
-<span class="c1"># or</span>
-nix shell github:nokx5/golden-cpp --command cli_golden
+</div><blockquote>
+<p>The channel will be locked by the flake in future nix releases. The following command would probably not be allowed anymore soon.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-shell --version <span class="c1"># before 2.3.15</span>
+nix-shell -I <span class="nv">nixpkgs</span><span class="o">=</span>https://github.com/nokx5/nokxpkgs/archive/main.tar.gz -p golden-cpp --command cli_golden
+</code></pre></div></blockquote>
+<p>You can use the software with the following commands.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix shell github:nokx5/golden-cpp --command cli_golden
 nix shell github:nokx5/nokxpkgs#golden-cpp --command cli_golden
 </code></pre></div><div class="gdoc-page__anchorwrap">
-    <h2 id="develop-the-software-depreciated---new-hash">
-        Develop the software (depreciated - new hash)
-        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#develop-the-software-depreciated---new-hash" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Develop the software (depreciated - new hash)" href="#develop-the-software-depreciated---new-hash">
+    <h2 id="develop-the-software-with-explicit-channel-depreciated---new-hash">
+        Develop the software with explicit channel (depreciated - new hash)
+        <a data-clipboard-text="https://nokx5.github.io/golden-cpp/#develop-the-software-with-explicit-channel-depreciated---new-hash" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Develop the software with explicit channel (depreciated - new hash)" href="#develop-the-software-with-explicit-channel-depreciated---new-hash">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
 </div><blockquote>
-<p>Please note that all commands of this section creates new hashes which means that the evaluation may require additional downloads.</p>
+<p>Please note that all commands of this section creates new hashes depending on the channel which means that the evaluation may require additional downloads.</p>
 </blockquote>
 <p>Start by cloning the <a class="gdoc-markdown__link" href="https://github.com/nokx5/golden-cpp">git repository</a> locally and enter it.</p>
 <div class="gdoc-page__anchorwrap">
@@ -409,7 +412,14 @@ nix-shell . -A devShell.x86_64-linux
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p>One line code formatter for C/C++ projects</p>
+</div><p>Save the derivations so it does not get garbage collected.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nix-build . -A packages.x86_64-linux.golden-cpp --out-link result-golden-cpp
+nix-build . -A packages.x86_64-linux.golden-cpp.inputDerivation --out-link result-golden-cpp-dev
+nix-build . -A devShell.x86_64-linux.inputDerivation --out-link result-golden-cpp-dev-full
+
+nix-build . -A packages.x86_64-linux.golden-cpp-clang --out-link result-golden-cpp-clang
+nix-build . -A packages.x86_64-linux.golden-cpp-clang.inputDerivation --out-link result-golden-cpp-clang-dev
+</code></pre></div><p>One line code formatter for C/C++ projects</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nixpkgs-fmt .
 
 clang-format -i <span class="k">$(</span>find . -path <span class="s2">&#34;./b*&#34;</span> -prune  -name <span class="s2">&#34;*.c&#34;</span> -o -name <span class="s2">&#34;*.cpp&#34;</span> -o -name <span class="s2">&#34;*.h&#34;</span> -o -name <span class="s2">&#34;*.hpp&#34;</span><span class="k">)</span>
